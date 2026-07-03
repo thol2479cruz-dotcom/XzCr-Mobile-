@@ -1,0 +1,316 @@
+/* ==========================================================================
+   CONFIGURACIÓN DE COLORES Y VARIABLES MINIMALISTAS
+   ========================================================================== */
+:root {
+    --blanco-puro: #ffffff;
+    --gris-fondo: #fafafa;
+    --negro-puro: #000000;
+    --negro-suave: #111111;
+    
+    /* MEJORA: Oscurecido de #666 para cumplir con accesibilidad WCAG AA (Contraste >= 4.5:1) */
+    --gris-texto: #575757; 
+    --gris-borde: #eeeeee;
+    
+    /* El toque Rosa Pony solicitado */
+    --rosa-pony: #ff65a3;             /* Rosa vibrante pero sofisticado */
+    --rosa-pony-claro: #fff0f5;       /* Fondo rosa pastel sutil */
+    
+    /* MEJORA: Declarar transiciones específicas en lugar de 'all' evita problemas de rendimiento */
+    --transicion-suave: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   RESET MODERNO Y ESTILOS GENERALES
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, h1, h2, h3, p {
+    margin: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--blanco-puro);
+    color: var(--negro-puro);
+    line-height: 1.6;
+    padding: 60px 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Cabecera Minimalista */
+.header-minimal {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.header-minimal h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--negro-puro);
+    margin-bottom: 10px;
+}
+
+.header-minimal p {
+    font-size: 0.95rem;
+    color: var(--gris-texto);
+    letter-spacing: 1px;
+}
+
+/* Contenedor central */
+.contenedor-principal {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Separación amplia y elegante entre fichas */
+}
+
+/* ==========================================================================
+   FICHA ESTRUCTURAL DEL TELÉFONO (Formato Horizontal)
+   ========================================================================== */
+.ficha-telefono {
+    display: flex;
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--gris-borde);
+    border-radius: 0px; /* Ángulos rectos para un look más arquitectónico */
+    overflow: hidden;
+    transition: border-color var(--transicion-suave);
+}
+
+.ficha-telefono:hover {
+    border-color: var(--negro-puro);
+}
+
+/* Bloque izquierdo: Imagen real */
+.visual-container {
+    flex: 1;
+    background-color: var(--gris-fondo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border-right: 1px solid var(--gris-borde);
+}
+
+.imagen-real {
+    max-width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    filter: grayscale(100%); /* Efecto artístico B&W por defecto */
+    transition: filter var(--transicion-suave);
+}
+
+.ficha-telefono:hover .imagen-real {
+    filter: grayscale(0%);
+}
+
+/* Bloque derecho: Datos del dispositivo */
+.contenido-container {
+    flex: 1.2;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Datos de cabecera de la tarjeta */
+.detalles-clave {
+    margin-bottom: 30px;
+}
+
+.tag-marca {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gris-texto);
+}
+
+.detalles-clave h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--negro-suave);
+    margin-top: 5px;
+}
+
+.precio-destacado {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--rosa-pony);
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   FICHA TÉCNICA VISUAL Y ORDENADA
+   ========================================================================== */
+.ficha-tecnica-visual {
+    margin-bottom: 35px;
+}
+
+.ficha-tecnica-visual h3, 
+.opciones-compra h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--negro-puro);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.grid-especificaciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    background-color: var(--gris-fondo);
+    padding: 20px;
+    border: 1px solid var(--gris-borde);
+}
+
+.item-especificacion {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-especificacion .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--gris-texto);
+    font-weight: 600;
+}
+
+.item-especificacion .valor {
+    font-size: 0.9rem;
+    color: var(--negro-suave);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   LISTA DE TIENDAS Y BOTÓN ROSA PONY
+   ========================================================================== */
+.opciones-compra {
+    border-top: 1px solid var(--gris-borde);
+    padding-top: 25px;
+}
+
+.linea-oferta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gris-borde);
+    font-size: 0.9rem;
+}
+
+.linea-oferta:last-of-type {
+    border-bottom: none;
+}
+
+.linea-oferta .tienda {
+    font-weight: 700;
+    color: var(--negro-suave);
+    flex: 1;
+}
+
+.linea-oferta .envio {
+    color: var(--gris-texto);
+    font-size: 0.8rem;
+    flex: 1;
+}
+
+.linea-oferta .precio-tienda {
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+/* El botón definitivo Rosa Pony con estética de marca */
+.btn-pony {
+    display: inline-block; /* MEJORA: Asegura el correcto comportamiento de paddings */
+    background-color: var(--negro-puro);
+    color: var(--blanco-puro);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border: 1px solid var(--negro-puro);
+    transition: background-color var(--transicion-suave), border-color var(--transicion-suave);
+}
+
+.btn-pony:hover {
+    background-color: var(--rosa-pony);
+    border-color: var(--rosa-pony);
+}
+
+/* Footer */
+.footer-minimal {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--gris-texto);
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   RESPONSIVE & ACCESIBILIDAD MÓVIL
+   ========================================================================== */
+/* MEJORA: Sintaxis moderna de Media Queries */
+@media (width <= 850px) {
+    body {
+        padding: 40px 15px;
+    }
+    
+    .header-minimal {
+        margin-bottom: 50px;
+    }
+
+    .ficha-telefono {
+        flex-direction: column;
+    }
+
+    .visual-container {
+        border-right: none;
+        border-bottom: 1px solid var(--gris-borde);
+        padding: 30px;
+    }
+
+    .contenido-container {
+        padding: 25px;
+    }
+
+    .grid-especificaciones {
+        grid-template-columns: 1fr;
+    }
+
+    .linea-oferta {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .linea-oferta .btn-pony {
+        width: 100%;
+        text-align: center;
+        padding: 12px; /* MEJORA: Área táctil más grande en móviles (mínimo 44px recomendados) */
+    }
+}
+
+/* MEJORA: Respetar la configuración del sistema del usuario si no desea animaciones */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
